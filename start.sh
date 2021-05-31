@@ -25,7 +25,22 @@ mount "$key" "/raid1/${raidPathMap[$key]}"
 done
 
 apt-get -y update && sudo apt-get -y upgrade 
-apt-get install samba
+apt-get install \
+	samba \
+	apt-transport-https \
+	ca-certificates \
+	curl \
+	gnupg lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+	sudo gpg --dearmor /usr/share/keyrings/docker-archive-keyring.gpg
+
+apt-get -y update
+sudo apt-get install \
+	docker-ce \
+	docker-ce-cli \
+	containerd.io
+
 
 mkdir -p /config/snapraid
 cp *.conf /config/snapraid
