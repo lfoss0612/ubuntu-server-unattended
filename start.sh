@@ -14,6 +14,7 @@ service smbd restart
 
 setup_snapraid () {
 
+mkdir -p /media/pool	
 mkdir -p /config/snapraid
 cp *.conf /config/snapraid
 
