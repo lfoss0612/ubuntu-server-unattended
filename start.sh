@@ -89,8 +89,10 @@ apt-get -y install \
 	docker-ce \
 	docker-ce-cli \
 	containerd.io \
-        webmin
-
+        webmin \
+	unattended-upgrades \
+	update-notifier-common
+        
 setup_snapraid
 setup_samba
 
